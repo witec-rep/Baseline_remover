@@ -24,6 +24,10 @@ def download_file(data, filename):
     href = f'<a href="data:file/csv;base64,{b64}" download="{filename}.csv">'+testo+'</a>'
     st.markdown(href, unsafe_allow_html=True)
 
+st.subheader('The files loaded need to be in a specific shape:')
+st.subheader(' - 3 columns, the first one with the X coordinates')
+st.subheader(' - the second one as dummy column (could be filled with random numbers does not matter)')
+st.subheader(' - the third one with the Y values')
 uploadfile = st.file_uploader('load zip file here', 'zip')
 
 if uploadfile:
@@ -47,4 +51,4 @@ if uploadfile:
     st.bokeh_chart(p1, use_container_width=True)
 
     for namei in files_names:
-        download_file(files[name], name)
+        download_file(files[namei], namei)
