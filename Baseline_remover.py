@@ -19,7 +19,7 @@ def load_func(uploadfile):
 
 def download_file(data, filename):
     testo = 'Download '+filename+'.csv'
-    csv = data.to_csv(index=False, header = None, sep = ';')
+    csv = data.to_csv(index=False, header = None, sep = ' ')
     b64 = base64.b64encode(csv.encode()).decode()
     href = f'<a href="data:file/csv;base64,{b64}" download="{filename}.csv">'+testo+'</a>'
     st.markdown(href, unsafe_allow_html=True)
